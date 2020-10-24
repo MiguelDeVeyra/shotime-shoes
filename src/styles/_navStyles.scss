@@ -1,0 +1,110 @@
+@mixin nav-item() {
+  padding: 0 40px;
+  color: #000 !important;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.desktop-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 5vw;
+  background: transparent;
+  padding: 1.5em 0;
+  min-width: 90vw;
+  min-height: 12vh;
+  position: fixed;
+  z-index: 1;
+
+  @media (max-width: 780px) {
+    display: none;
+  }
+
+  .logoContainer {
+    margin-right: auto;
+  }
+
+  .nav-items {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+
+    .item {
+      @include nav-item();
+      text-align: center;
+      width: 8em;
+    }
+
+    .item-search {
+      @include nav-item();
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 20em;
+
+      .input-field-search {
+        max-width: 20em;
+      }
+    }
+
+    .item-menu {
+      @include nav-item();
+
+      svg {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (min-width: $sm) {
+    display: none;
+  }
+
+  .mobile-logo {
+    padding: 2em 0;
+    margin-left: 2em;
+  }
+  .mobile-menu {
+    padding: 2em 0 0 0;
+    margin-right: 2em;
+    transition: 0.7s;
+  }
+
+  .mobile-nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 3em;
+    position: fixed;
+    height: 100%;
+    width: 80%;
+    right: 0;
+    background: #212121;
+    z-index: 100;
+
+    .mobile-menu-closer {
+      padding: 0 30px;
+    }
+
+    a {
+      padding: 2rem 0;
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+}

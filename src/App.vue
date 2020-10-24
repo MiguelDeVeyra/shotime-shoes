@@ -1,28 +1,34 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <navigationBar/>
+    <router-view/>
+    <footerCred/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import navigationBar from './components/navigation';
+import footerCred from './components/footer';
+
+import './styles/base.scss'
+import 'animate.css'
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: { 
+    footerCred,
+    navigationBar
+  },
+  created () {
+    AOS.init({
+      duration: 1000,
+    })
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
 </style>

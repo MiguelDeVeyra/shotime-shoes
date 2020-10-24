@@ -1,0 +1,41 @@
+// mixins
+@mixin flexRow() {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.footer-style {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 10em;
+  height: 3em;
+  background-color: #fff;
+
+  @media (max-width: $md) {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 20em;
+  }
+
+  div {
+    padding: 1em 0;
+  }
+
+  .developer {
+    @include flexRow();
+    svg {
+      margin-right: 1em;
+    }
+    span {
+      color: #212121;
+      font-weight: bold;
+      margin-left: 0.3em;
+
+      a {
+        text-decoration: none;
+        color: #212121;
+      }
+    }
+  }
+}
